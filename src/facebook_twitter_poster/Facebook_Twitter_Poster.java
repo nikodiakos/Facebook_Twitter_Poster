@@ -95,7 +95,7 @@ public class Facebook_Twitter_Poster {
          
        		
                 
-                if(document.title().equals("Twitter")){
+                if(document.title().startsWith("Twitter")){
                     return true;
                 }else {
                     return false;
