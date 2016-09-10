@@ -21,7 +21,7 @@ public class Facebook_Twitter_Poster {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        
+            
         
   
     }
@@ -89,15 +89,17 @@ public class Facebook_Twitter_Poster {
                         return cookies;
         }
      public static boolean tw_isConnected(Map<String, String> cookies) throws Exception{
-         Document document = Jsoup.connect("https://www.twitter.com/")
+         Document document = Jsoup.connect("https://www.twitter.com/i/notifications")
        			    .cookies(cookies)
        			    .get();
          
        		
                 
-                if(document.title().startsWith("Twitter")){
+                try {
+                    String info = document.select("div#timeline").first().text();
                     return true;
-                }else {
+                    
+                }catch (NullPointerException e){
                     return false;
                 }
          
